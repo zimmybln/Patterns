@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,18 +9,22 @@ namespace StateMachine
 {
     public class StateMachine
     {
-        private readonly List<State> _states = new List<State>();
+        public List<State> States { get; } = new List<State>();
 
-
-        public List<State> States
+        public bool IsSet(string statename)
         {
-            get { return _states; }
+            var state = States.FirstOrDefault(s => s.Name.Equals(statename));
+
+            if (state == null)
+                throw new ArgumentNullException();
+
+            return state.Expression();
         }
     }
 
     public static class ListOfStateExtender
     {
-        public static bool Contains(this List<State> list, string name)
+        public static bool ContainsByName(this List<State> list, string name)
         {
             return list.Any(s => s.Name.Equals(name));
         }
@@ -28,9 +33,18 @@ namespace StateMachine
 
     public class State
     {
-        public State(string name)
+        private Func<bool> _stateExpression = null;
+
+        public State(string name, Func<bool> expression = null)
         {
             Name = name;
+            _stateExpression = expression;
+        }
+
+        public Func<bool> Expression
+        {
+            get { return _stateExpression; }
+            set { _stateExpression = value; }
         }
 
         public string Name { get; }
