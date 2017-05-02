@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using StateMachine.Exceptions;
 
 namespace StateMachine
 {
@@ -11,12 +12,15 @@ namespace StateMachine
     {
         public List<State> States { get; } = new List<State>();
 
+        /// <summary>
+        /// Verifies if a state is set or not.
+        /// </summary>
         public bool IsSet(string statename)
         {
             var state = States.FirstOrDefault(s => s.Name.Equals(statename));
 
             if (state == null)
-                throw new ArgumentNullException();
+                throw new UnknownStateException(statename);
 
             return state.Expression();
         }

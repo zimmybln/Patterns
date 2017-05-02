@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using StateMachine.Exceptions;
 
 namespace StateMachine
 {
@@ -38,8 +39,25 @@ namespace StateMachine
             Assert.IsTrue(statemachine.States.ContainsByName(statename));
         }
 
+        [TestCase(true)]
+        [TestCase(false)]
+        public void AddAStateWithExpressionAndCheck(bool thecase)
+        {
+            const string statename = "a simple state";
+
+            var statemachine = new StateMachine();
+
+            State state = new State(statename, () => thecase);
+
+            statemachine.States.Add(state);
+            
+            Assert.IsTrue(statemachine.States.Count == 1);
+            Assert.IsTrue(statemachine.States.ContainsByName(statename));
+            Assert.IsTrue(statemachine.IsSet(statename) == thecase);
+        }
+
         [Test]
-        public void AddAStateWithExpressionAndCheck()
+        public void AddAndRemoveAState()
         {
             const string statename = "a simple state";
 
@@ -49,10 +67,24 @@ namespace StateMachine
 
             statemachine.States.Add(state);
             
-            Assert.IsTrue(statemachine.States.Count == 1);
-            Assert.IsTrue(statemachine.States.ContainsByName(statename));
-            Assert.IsTrue(statemachine.IsSet(statename));
+            statemachine.States.Remove(state);
 
+            Assert.IsTrue(statemachine.States.Count == 0);
+            Assert.IsTrue(!statemachine.States.ContainsByName(statename));
+        }
+
+        [Test]
+        public void AccessUnknownState()
+        {
+            const string statename = "a simple state";
+
+            var statemachine = new StateMachine();
+
+            State state = new State(statename, () => true);
+
+            statemachine.States.Add(state);
+
+            Assert.Throws<UnknownStateException>(() => statemachine.IsSet("foo"));
         }
     }
 }
