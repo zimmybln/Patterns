@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
-namespace StateMachine
+namespace StateMachine.VariationOne
 {
     [TestFixture]
     public class StateMachineBaseTests
@@ -15,7 +10,7 @@ namespace StateMachine
         {
             const string statename = "a simple state";
 
-            var statemachine = new StateMachine();
+            var statemachine = new VariationOne.StateMachine();
 
             statemachine.States.Add(statename);
             
@@ -28,7 +23,7 @@ namespace StateMachine
         {
             const string statename = "a simple state";
 
-            var statemachine = new StateMachine();
+            var statemachine = new VariationOne.StateMachine();
 
             State state = new State(statename, () => true);
             
@@ -43,7 +38,7 @@ namespace StateMachine
         {
             const string statename = "a simple state";
 
-            var statemachine = new StateMachine();
+            var statemachine = new VariationOne.StateMachine();
 
             State state = new State(statename, () => true);
 

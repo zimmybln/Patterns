@@ -1,9 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateMachine", "Step 1\StateMachine\StateMachine.csproj", "{4C5431EF-151E-4E8C-B992-051810539925}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplestStateMachineEver", "SimplestStateMachineEver\SimplestStateMachineEver\SimplestStateMachineEver.csproj", "{86AEC535-D551-4EF5-8D6D-6FFEBDCDEDEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateMachineWithCharacteristicByValues", "StateMachineWithCharacteristicByValues\StateMachineWithCharacteristicByValues\StateMachineWithCharacteristicByValues.csproj", "{3ECD5C71-2E82-4BEF-A39C-671124DC1C30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateMachineWithEvents", "StateMachineWithEvents\StateMachineWithEvents.csproj", "{FFAC3A86-C582-42E2-B152-25CBC2A9487B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C638DB37-F986-4CF2-82CC-35DE088339C8}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.md = ReadMe.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +26,18 @@ Global
 		{4C5431EF-151E-4E8C-B992-051810539925}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C5431EF-151E-4E8C-B992-051810539925}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C5431EF-151E-4E8C-B992-051810539925}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86AEC535-D551-4EF5-8D6D-6FFEBDCDEDEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86AEC535-D551-4EF5-8D6D-6FFEBDCDEDEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86AEC535-D551-4EF5-8D6D-6FFEBDCDEDEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86AEC535-D551-4EF5-8D6D-6FFEBDCDEDEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ECD5C71-2E82-4BEF-A39C-671124DC1C30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ECD5C71-2E82-4BEF-A39C-671124DC1C30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ECD5C71-2E82-4BEF-A39C-671124DC1C30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ECD5C71-2E82-4BEF-A39C-671124DC1C30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFAC3A86-C582-42E2-B152-25CBC2A9487B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFAC3A86-C582-42E2-B152-25CBC2A9487B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFAC3A86-C582-42E2-B152-25CBC2A9487B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFAC3A86-C582-42E2-B152-25CBC2A9487B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
