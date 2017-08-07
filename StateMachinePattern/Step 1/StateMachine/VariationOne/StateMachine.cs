@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using StateMachine.Exceptions;
 
 namespace StateMachine.VariationOne
 {
@@ -8,12 +9,15 @@ namespace StateMachine.VariationOne
     {
         public List<State> States { get; } = new List<State>();
 
+        /// <summary>
+        /// Verifies if a state is set or not.
+        /// </summary>
         public bool IsSet(string statename)
         {
             var state = States.FirstOrDefault(s => s.Name.Equals(statename));
 
             if (state == null)
-                throw new ArgumentNullException();
+                throw new UnknownStateException(statename);
 
             return state.Expression();
         }
