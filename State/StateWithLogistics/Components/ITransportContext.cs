@@ -9,3 +9,4 @@ namespace StateWithLogistics.Components
         int Weight { get; }
     }
 }
+ 
